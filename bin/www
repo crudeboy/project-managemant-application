@@ -3,14 +3,22 @@
 /**
  * Module dependencies.
  */
-
+ var dotenv = require("dotenv").config()
 var app = require("../dist/app").default;
 var debug = require("debug")("week11:server");
 var http = require("http");
-var dotenv = require("dotenv");
+var mongoose  = require("mongoose")
+;
 
 //configure environment variables
-dotenv.config();
+// dotenv.config();
+
+mongoose
+.connect(process.env.JAZZURL_DATABASE)
+.then(console.log("Database is connected"))
+
+
+
 
 /**
  * Get port from environment and store in Express.
